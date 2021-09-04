@@ -1,0 +1,71 @@
+MariaDB [bankrapi]> show databases;
++--------------------+
+| Database           |
++--------------------+
+| bankrapi           |
+| information_schema |
+| test               |
++--------------------+
+3 rows in set (0.00 sec)
+
+MariaDB [bankrapi]> use bankrapi;
+Database changed
+MariaDB [bankrapi]> show tables;
++--------------------+
+| Tables_in_bankrapi |
++--------------------+
+| bank               |
+| branch             |
+| branch_employee    |
+| customer           |
+| employee           |
++--------------------+
+5 rows in set (0.00 sec)
+
+MariaDB [bankrapi]> desc bank;
++-----------+--------------+------+-----+---------+-------+
+| Field     | Type         | Null | Key | Default | Extra |
++-----------+--------------+------+-----+---------+-------+
+| bank_id   | int(11)      | NO   | PRI | NULL    |       |
+| address   | varchar(255) | YES  |     | NULL    |       |
+| name      | varchar(255) | YES  |     | NULL    |       |
+| no_branch | int(11)      | NO   |     | NULL    |       |
++-----------+--------------+------+-----+---------+-------+
+4 rows in set (0.01 sec)
+
+MariaDB [bankrapi]> desc branch;
++------------+--------------+------+-----+---------+-------+
+| Field      | Type         | Null | Key | Default | Extra |
++------------+--------------+------+-----+---------+-------+
+| branch_id  | int(11)      | NO   | PRI | NULL    |       |
+| address    | varchar(255) | YES  |     | NULL    |       |
+| no_account | int(11)      | NO   |     | NULL    |       |
+| no_staff   | int(11)      | NO   |     | NULL    |       |
+| bank_id    | int(11)      | YES  | MUL | NULL    |       |
++------------+--------------+------+-----+---------+-------+
+5 rows in set (0.11 sec)
+
+MariaDB [bankrapi]> desc customer;
++------------+--------------+------+-----+---------+-------+
+| Field      | Type         | Null | Key | Default | Extra |
++------------+--------------+------+-----+---------+-------+
+| account_id | int(11)      | NO   | PRI | NULL    |       |
+| address    | varchar(255) | YES  |     | NULL    |       |
+| name       | varchar(255) | YES  |     | NULL    |       |
+| phone_no   | int(11)      | NO   |     | NULL    |       |
+| branch_id  | int(11)      | YES  | MUL | NULL    |       |
++------------+--------------+------+-----+---------+-------+
+5 rows in set (0.01 sec)
+
+MariaDB [bankrapi]> desc Employee;
++-----------+--------------+------+-----+---------+-------+
+| Field     | Type         | Null | Key | Default | Extra |
++-----------+--------------+------+-----+---------+-------+
+| emp_id    | int(11)      | NO   | PRI | NULL    |       |
+| address   | varchar(255) | YES  |     | NULL    |       |
+| name      | varchar(255) | YES  |     | NULL    |       |
+| phone_no  | int(11)      | NO   |     | NULL    |       |
+| branch_id | int(11)      | YES  | MUL | NULL    |       |
++-----------+--------------+------+-----+---------+-------+
+5 rows in set (0.01 sec)
+
